@@ -3,6 +3,7 @@ import Header from "./Header";
 import Note from "./Note";
 import notes from './notes';
 import Footer from "./Footer";
+import CreateArea from "./CreateArea";
 function createNote(notes){
     return <Note title={notes.title} content={notes.content} />
 }

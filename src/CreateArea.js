@@ -1,6 +1,6 @@
-import React, { userState } from "react";
+import React, { useState } from "react";
 
-function CreateArea() {
+function CreateArea(props) {
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -17,25 +17,30 @@ function CreateArea() {
     });
   }
   function submitNote(event) {
+    props.onAdd(note);
+    setNote({
+      title: "",
+      content: "",
+    });
     event.preventDefault();
   }
   return (
     <div>
-      <form>
+      <form onSubmit={submitNote}>
         <input
           name="title"
           onChange={handleChange}
           value={note.title}
           placeholder="Title"
         />
-        <textArea
+        <textarea
           name="content"
           onChange={handleChange}
           value={note.content}
           placeholder="Take a note..."
-          row="3"
+          rows="3"
         />
-        <button onClick={submitNote}>Add</button>
+        <button type="submit">Add</button>
       </form>
     </div>
   );

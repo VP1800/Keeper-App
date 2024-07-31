@@ -25,8 +25,8 @@ function CreateArea(props) {
     event.preventDefault();
   }
   return (
-    <div>
-      <form onSubmit={submitNote}>
+    <div class="add">
+      <form onSubmit={submitNote} class="form">
         <input
           name="title"
           onChange={handleChange}
